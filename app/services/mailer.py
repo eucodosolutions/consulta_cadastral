@@ -52,7 +52,7 @@ def enviar_email_resultado(email_destino: str, df: pd.DataFrame, resumo: dict) -
         
         # 3. Anexo CSV (em memória)
         csv_buffer = BytesIO()
-        df.to_csv(csv_buffer, index=False, encoding="utf-8")
+        df.to_csv(csv_buffer, index=False, sep=";", encoding="utf-8-sig")
         csv_buffer.seek(0)
         
         anexo = MIMEApplication(csv_buffer.read(), _subtype="csv")

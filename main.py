@@ -537,7 +537,7 @@ def _handle_upload(f, email: str | None = None):
         with st.chat_message("assistant", avatar="🤖"):
             st.markdown(msg)
             
-        st.session_state.download_csv = res["resultados_df"].to_csv(index=False).encode("utf-8")
+        st.session_state.download_csv = res["resultados_df"].to_csv(index=False, sep=";").encode("utf-8-sig")
         st.session_state.download_name = f"resultado_{int(time.time())}.csv"
         
         # Faz o envio efetivo do e-mail (usando st.toast para não travar a UI principal com logs feios)
