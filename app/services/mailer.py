@@ -24,7 +24,7 @@ def enviar_email_resultado(email_destino: str, df: pd.DataFrame, resumo: dict) -
         msg = MIMEMultipart()
         msg['From'] = mail_sender
         msg['To'] = email_destino
-        msg['Subject'] = "Resultados da Colsulta Cadastral"
+        msg['Subject'] = "Resultados da Consulta Cadastral"
         
         # 2. Corpo do E-mail em HTML
         sucessos = resumo.get('sucessos', 0)
